@@ -2,28 +2,38 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>HowLong!</title>
+	<meta charset="utf-8">
+	<style>
+		/* Set the size of the div element that contains the map */
+		#map {
+			height: 400px;
+			width: 600px;
+		}
+	</style>
 </head>
 
 <body>
-	現在地:
-	緯度:<input type="text" id="lat1">
-	経度:<input type="text" id="lng1"><br>
-	
-	目的地:
-	緯度:<input type="text" id="lat2">
-	経度:<input type="text" id="lng2"><br>
-	
-	<Button onclick="click()">Button</Button>
-	
-	<!-- ボタン入力で実行 -->
+	現在地:<input type="text" name="address" id="address1">
+	目的地:<input type="text" name="address" id="address2">
+	<Button onclick="getLatLng()">Button</Button>
 	<div id="map"></div>
-	<script type="text/javascript" src="map.js"></script>
-	<!--	Load the AP from the specified URL --
-	<remembor to replace YOUR API_KEY-->
+	
+	現在地:<br>
+	緯度:<input type="text" id="lat1"><br>
+	経度:<input type="text" id="lng1"><br>
+	目的地:<br>
+	緯度:<input type="text" id="lat2"><br>
+	経度:<input type="text" id="lng2"><br>
+	<button onclick="zahyou()">button</button>
+
+	<!--Load the API from the specified URL -- 
+    <remember to replace YOUR_API_KEY-->
+	<script type="text/javascript" src="./map.js"></script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?
-	key=YOUR_API_KEY&callback=initMap"></script>
+    key=YOUR_API_KEY&callback=initMap"></script>
+	<script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+
 </body>
 
 </html>
