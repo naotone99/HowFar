@@ -2,31 +2,125 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>HowLong!</title>
-	#map{
-	height: 400px;
-	width: 600px;
-	}
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./map.css">
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<title>How far?</title>
 </head>
 
 <body>
-	現在地:
-	緯度:<input type="text" id="lat1">
-	経度:<input type="text" id="lng1"><br>
+	<h1>How far ?</h1>
+	<hr>
+	<div class="main">
+		<div class="left">
+			<div class="block">
+				<div class="block1">
+					現在地<br>
+					住所:<input type="text" name="address" id="address1"><br><br>
+
+					緯度:<input type="text" id="lat1"><br>
+					経度:<input type="text" id="lng1"><br>
+				</div>
+				<div class="block2">
+					目的地<br>
+					住所:<input type="text" name="address" id="address2"><br><br>
+
+					緯度:<input type="text" id="lat2"><br>
+					経度:<input type="text" id="lng2">
+				</div>
+				<div class="block3">
+					<br><Button onclick="getLatLng()">住所で検索</Button><br><br><br>
+
+					<button onclick="zahyou()">座標で検索</button>
+				</div>
+			</div>
+			<div id="map"></div>
+		</div>
+		<div class="right">
+			<div class="btn">
+				<div class="btn1">
+					当サイト
+				</div>
+				<div class="btn2">
+					使い方
+				</div>
+				<div class="btn3">
+					参考文献
+				</div>
+				<div class="btn4">
+					更新予定
+				</div>
+			</div>
+
+			<div class="btn1view">
+				<h2>当サイト</h2>
+				出発地と目的地の2点間を<br>
+				半径とした円が、<br>
+				地図上に表示されます。<br><br>
+				
+				目的地までの距離は<br>
+				他方角のどこまで到達可能かを<br>
+				可視化するサイトです。<br>
+			</div>
+			<div class="btn2view">
+				<h2>使い方</h2>
+				1.出発地、目的地の市区町村まで<br>
+				(もしくは座標)を記入<br><br>
+				
+				2.市区町村を記入した場合[住所で検索]、<br>
+				座標を記入した場合[座標で検索]ボタンを押す<br>
+			</div>
+			<div class="btn3view">
+				<h2>参考文献</h2>
+				
+				<a href="https://developers-jp.googleblog.com/2019/12/how-calculate-distances-map-maps-javascript-api.html">
+					googleMapの使い方<br><br>
+				</a>
+				
+				<a href="https://www.single-life.tokyo/google-maps%EF%BC%88%E3%82%B0%E3%83%BC%E3%82%B0%E3%83%AB%E3%83%9E%E3%83%83%E3%83%97%EF%BC%89%E4%B8%8A%E3%81%AB%E5%86%86%EF%BC%88circle%EF%BC%89%E3%81%AB%E6%8F%8F%E3%81%8F%E6%96%B9%E6%B3%95/">
+					googleMap上に円を描く<br><br>
+				</a>
+				
+				<a href="https://taitan916.info/blog/archives/3186">
+					座標情報の取得<br><br>
+				</a>
+				
+				<a href="https://open-code.tech/post-1457/">
+					ajaxの取得結果をグローバル変数に代入<br><br>
+				</a>
+				
+				
+				
+			</div>
+			<div class="btn4view">
+				<h2>更新予定</h2>
+				より詳細な検索機能の追加<br>
+				端末毎に適した画面の追加<br>
+				画面デザイン
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="footer">
+		<h3>
+			<a href="https://nemo99port.com/Profile/">
+				<img src="./img/profileImg.png" width="50px">
+			</a>
+			　
+			<a href="https://github.com/nemo9928"><!--github icon-->
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="50" height="50"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+			</a>
+		</h3>
+		<small>© nemo99port.com 2024</small>
+	</div>
 	
-	目的地:
-	緯度:<input type="text" id="lat2">
-	経度:<input type="text" id="lng2"><br>
-	
-	<Button onclick="click()">Button</Button>
-	
-	<!-- ボタン入力で実行 -->
-	<div id="map"></div>
-	<script type="text/javascript" src="map.js"></script>
-	<!--	Load the AP from the specified URL --
-	<remembor to replace YOUR API_KEY-->
-	<script async defer src="https://maps.googleapis.com/maps/api/js? key=YOUR_API_KEY&callback=initMap"></script>
+	<!--APIkey 未登録-->
+	<script type="text/javascript" src="./map.js"></script>
+	<script type="text/javascript" src="./btnview.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?
+    key=YOUR_API_KEY&callback=initMap"></script>
+	<script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
 </body>
 
 </html>
