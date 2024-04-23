@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+h1 {
+	text-align: center;
+}
+
+.block {
+	display: flex;
+	justify-content:center;
+}
+
+.main {
+	max-width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+
+.left {
+	grid-column: 1/2;
+}
+
+/*地図のサイズ*/
+#map {
+	height: 100vh;
+	max-height: 320px;
+	width: 100%;
+
+}
+
+
+.right {
+	grid-column: 2/3;
+}
+
+/*ボタン要素*/
+.btn {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn1 {
+	background-color: aqua;
+	border-radius: 10px;
+	border-bottom: solid 5px darkcyan;
+	cursor: pointer;
+}
+
+.btn2 {
+	background-color: aqua;
+	border-radius: 10px;
+	border-bottom: solid 5px darkcyan;
+	cursor: pointer;
+}
+
+.btn3 {
+	background-color: aqua;
+	border-radius: 10px;
+	border-bottom: solid 5px darkcyan;
+	cursor: pointer;
+}
+
+.btn4 {
+	background-color: aqua;
+	border-radius: 10px;
+	border-bottom: solid 5px darkcyan;
+	cursor: pointer;
+}
+
+/*ボタンに紐づく画面*/
+
+.btn2view {
+	display: none;
+}
+
+.btn3view {
+	display: none;
+}
+
+.btn4view {
+	display: none;
+}
+
+/*右寄せ*/
+.footer {
+	text-align: center;
+}
