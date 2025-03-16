@@ -24,8 +24,7 @@ h1 {
 #map {
 	height: 100vh;
 	max-height: 320px;
-	width: 80vh;
-	margin: auto;
+	width: 100%;
 
 }
 
